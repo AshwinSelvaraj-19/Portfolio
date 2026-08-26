@@ -1,40 +1,28 @@
-import thumbnailCubeWar from "../../../assets/thumbnails/cubewar.webp";
-import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
-import thumbnailParticles from "../../../assets/thumbnails/particles.webp";
-import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
-import thumbnailSharkie from "../../../assets/thumbnails/sharkie.webp";
-
 import type { ProjectPreview } from "../../types";
 
 export default [
   {
-    title: "CubeWar",
-    slug: "cubewar",
-    thumbnail: thumbnailCubeWar,
-    description: "Multiplayer-Strategiespiel",
-  },
-  {
-    title: "Quibbo",
+    title: "Notfallrouten-Optimierung",
     slug: "quibbo",
-    thumbnail: thumbnailQuibbo,
-    description: "Multiplayer-Gaming-Plattform",
+    thumbnail: "",
+    description: "Intelligente Routenoptimierung für Notfallreaktion",
   },
   {
-    title: "Sharkie",
+    title: "Sentinel Bedrohungserkennungssystem",
     slug: "sharkie",
-    thumbnail: thumbnailSharkie,
-    description: "2D-Abenteuerspiel",
+    thumbnail: "",
+    description: "Sicherheitsfokussierte Bedrohungserkennung und Überwachung",
   },
   {
-    title: "WebGL Partikel",
+    title: "PhoenixMic — Echtzeit-Audio-DSP-Engine",
+    slug: "cubewar",
+    thumbnail: "",
+    description: "Echtzeit-Mikrofonverarbeitung mit konfigurierbarer DSP-Pipeline",
+  },
+  {
+    title: "Aegis — Discord-Sicherheit & Anti-Nuke",
     slug: "particles",
-    thumbnail: thumbnailParticles,
-    description: "Dynamische 3D Partikel",
-  },
-  {
-    title: "Pokédex",
-    slug: "pokedex",
-    thumbnail: thumbnailPokedex,
-    description: "Open-Source Lernprojekt",
+    thumbnail: "",
+    description: "Discord-Sicherheits- und Server-Schutzbot",
   },
 ] as const satisfies ProjectPreview[];

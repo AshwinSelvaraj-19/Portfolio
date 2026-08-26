@@ -104,7 +104,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
       <div class="box-details-content">
         <div class="box-details-title">
           <AppearingText
-            text="David"
+            text="Ashwin Selvaraj"
             :steps="1"
             :duration="0.35"
             @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0)"
@@ -114,9 +114,9 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
           <div class="box-details-item">
             <PinIcon class="box-details-icon" />
             <AppearingText
-              v-if="t('germany')"
+              v-if="t('india')"
               class="box-details-content-copy"
-              :text="t('germany')"
+              :text="t('india')"
               :steps="3"
               :duration="0.35"
               @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0.1)"
@@ -181,6 +181,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   }
 
   &-content {
+    position: relative;
     border: var(--stroke-sm) solid var(--color-cyan-400);
     border-radius: var(--radius-md);
     background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
@@ -223,6 +224,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   &-title {
     font-size: var(--font-size-title-xxs);
     font-weight: 700;
+    background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
+    padding: var(--space-xxs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    display: inline-block;
 
     @include mixins.mq("md") {
       font-size: var(--font-size-title-sm);

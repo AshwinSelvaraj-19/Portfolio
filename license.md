@@ -1,11 +1,11 @@
-Copyright (c) 2026 David Heckhoff
+Copyright (c) 2026 Ashwin Selvaraj
 
 Original portfolio:
-https://david-hckh.com
+https://ashwinselvaraj-19.github.io/PORTFOLIO
 
 Permission is hereby granted to use, copy, modify, and distribute this software for personal and educational purposes only, subject to the following conditions:
 
-1. Attribution to the original author (David Heckhoff) and the original portfolio link (https://david-hckh.com) must be clearly visible in:
+1. Attribution to the original author (Ashwin Selvaraj) and the original portfolio link (https://ashwinselvaraj-19.github.io/PORTFOLIO) must be clearly visible in:
    - the source code,
    - the repository README,
    - and any public deployment using substantial portions of this project.

@@ -99,10 +99,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     <div ref="wrapperRef" class="box-description">
       <div class="box-description-content">
         <div class="box-description-details">
-          <p class="box-description-details-name">David</p>
+          <p class="box-description-details-name">Ashwin Selvaraj</p>
           <div class="box-description-details-location">
             <PinIcon class="box-description-details-location-icon" />
-            <p class="box-description-details-location-copy">{{ t("germany") }}</p>
+            <p class="box-description-details-location-copy">{{ t("india") }}</p>
           </div>
         </div>
         <div class="box-description-line"></div>
@@ -168,6 +168,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     &-name {
       font-size: var(--font-size-title-xs);
       font-weight: 700;
+      background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
+      padding: var(--space-xxs) var(--space-xs);
+      border-radius: var(--radius-sm);
+      display: inline-block;
     }
 
     &-location {
@@ -220,6 +224,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   }
 
   &-content {
+    position: relative;
     border: var(--stroke-sm) solid var(--color-cyan-400);
     border-radius: var(--radius-md);
     background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);

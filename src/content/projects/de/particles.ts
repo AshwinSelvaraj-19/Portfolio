@@ -1,54 +1,11 @@
-import videoParticles from "../../../assets/videos/particles.mp4";
-
-import particles0 from "../../../assets/images/projects/particles/particles-0.webp";
-import particles1 from "../../../assets/images/projects/particles/particles-1.webp";
-import particles2 from "../../../assets/images/projects/particles/particles-2.webp";
-
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "WebGL Particles",
+  title: "Aegis — Discord-Sicherheit & Anti-Nuke",
   theme: "dark",
-  tags: ["ogl", "javascript", "glsl"],
-  live: "https://particles.david-hckh.com/",
+  tags: ["python", "discord", "security"],
   videoBorder: false,
   description:
-    "Ein experimentelles WebGL-Projekt mit OGL.js, das Partikel mithilfe mathematischer Formeln und Noise-Funktionen animiert.<br/><br/>Die Partikel bewegen sich fließend zwischen verschiedenen 3D-Formen, die ineinander übergehen.",
-  components: [
-    {
-      type: "media",
-      props: {
-        type: "video",
-        src: videoParticles,
-        caption: "Animiertes Partikelsystem",
-      },
-    },
-    {
-      type: "media",
-      props: {
-        type: "image",
-        src: particles0,
-        alt: "Knoten Form",
-        caption: "Knoten Form",
-      },
-    },
-    {
-      type: "media",
-      props: {
-        type: "image",
-        src: particles1,
-        alt: "Donut Form",
-        caption: "Donut Form",
-      },
-    },
-    {
-      type: "media",
-      props: {
-        type: "image",
-        src: particles2,
-        alt: "Kugel Form",
-        caption: "Kugel Form",
-      },
-    },
-  ],
+    "Discord-Sicherheits- und Server-Schutzbot, der hilft, destruktive Server-Aktivitäten zu erkennen und abzuschwächen.<br/><br/>Bietet Anti-Nuke-Schutz, Raid-Erkennungs-Systeme, Moderationsautomatisierung und Server-Gesundheitsüberwachung.",
+  components: [],
 } as const satisfies ProjectContent;

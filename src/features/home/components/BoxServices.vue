@@ -107,19 +107,25 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 };
 
 const SERVICES_EN = [
-  { name: "Three.js & WebGL" },
-  { name: "Node.js & WebSockets" },
-  { name: "React & Vue" },
-  { name: "Kubernetes & Redis" },
-  { name: "Real-time Multiplayer" },
+  { name: "Python" },
+  { name: "HTML" },
+  { name: "CSS" },
+  { name: "Git" },
+  { name: "GitHub" },
+  { name: "Supabase" },
+  { name: "Railway" },
+  { name: "Netlify" },
 ] as const satisfies { name: string }[];
 
 const SERVICES_DE = [
-  { name: "Three.js & WebGL" },
-  { name: "Node.js & WebSockets" },
-  { name: "React & Vue" },
-  { name: "Kubernetes & Redis" },
-  { name: "Echtzeit-Mehrspieler" },
+  { name: "Python" },
+  { name: "HTML" },
+  { name: "CSS" },
+  { name: "Git" },
+  { name: "GitHub" },
+  { name: "Supabase" },
+  { name: "Railway" },
+  { name: "Netlify" },
 ] as const satisfies { name: string }[];
 
 const services = computed(() => {
@@ -167,18 +173,13 @@ const services = computed(() => {
 
   @include mixins.landscape {
     width: 480px;
-    max-width: calc(var(--svw) * 37);
+    max-width: calc(var(--svw) * 38);
     padding-left: var(--line-length);
     position: relative;
     left: 0;
     bottom: 0;
     padding-top: 3px;
     transform: translate(0, -50%);
-  }
-
-  @include mixins.landscape-large {
-    width: 380px;
-    max-width: calc(var(--svw) * 36);
   }
 
   &::after,
@@ -237,7 +238,7 @@ const services = computed(() => {
   &-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-xxs);
 
     &-item {
       display: flex;
@@ -257,14 +258,14 @@ const services = computed(() => {
       }
 
       &-name {
-        font-size: var(--font-size-md);
+        font-size: var(--font-size-sm);
 
         @include mixins.landscape {
-          font-size: var(--font-size-sm);
+          font-size: var(--font-size-xs);
         }
 
         @include mixins.landscape-large {
-          font-size: var(--font-size-lg);
+          font-size: var(--font-size-sm);
         }
       }
     }

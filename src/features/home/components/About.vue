@@ -92,6 +92,7 @@ watchEffect((onInvalidate) => {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 
     @include mixins.landscape {
       width: 100%;

@@ -1,40 +1,28 @@
-import thumbnailCubeWar from "../../../assets/thumbnails/cubewar.webp";
-import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
-import thumbnailParticles from "../../../assets/thumbnails/particles.webp";
-import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
-import thumbnailSharkie from "../../../assets/thumbnails/sharkie.webp";
-
 import type { ProjectPreview } from "../../types";
 
 export default [
   {
-    title: "CubeWar",
-    slug: "cubewar",
-    thumbnail: thumbnailCubeWar,
-    description: "Multiplayer strategy game",
-  },
-  {
-    title: "Quibbo",
+    title: "Emergency Route Optimizer",
     slug: "quibbo",
-    thumbnail: thumbnailQuibbo,
-    description: "Multiplayer gaming platform",
+    thumbnail: "",
+    description: "Intelligent route optimization for emergency response",
   },
   {
-    title: "Sharkie",
+    title: "Sentinel Threat Detection System",
     slug: "sharkie",
-    thumbnail: thumbnailSharkie,
-    description: "2D adventure game",
+    thumbnail: "",
+    description: "Security-focused threat detection and monitoring",
   },
   {
-    title: "WebGL Particles",
+    title: "PhoenixMic — Real-Time Audio DSP Engine",
+    slug: "cubewar",
+    thumbnail: "",
+    description: "Real-time microphone processing with configurable DSP pipeline",
+  },
+  {
+    title: "Aegis — Discord Security & Anti-Nuke",
     slug: "particles",
-    thumbnail: thumbnailParticles,
-    description: "Dynamic 3D particles",
-  },
-  {
-    title: "Pokédex",
-    slug: "pokedex",
-    thumbnail: thumbnailPokedex,
-    description: "Open-source learning project",
+    thumbnail: "",
+    description: "Discord security and server-protection bot",
   },
 ] as const satisfies ProjectPreview[];

@@ -153,7 +153,9 @@ watch(
             <About :spacer-ref="aboutSpacerRef" />
           </div>
         </div>
-        <Hero class="intro-hero" id="hero" />
+        <div class="intro-hero" id="hero">
+          <Hero />
+        </div>
         <div class="intro-wrapper-spacer"></div>
         <div class="about-spacer" ref="aboutSpacerRef" id="about"></div>
       </div>
