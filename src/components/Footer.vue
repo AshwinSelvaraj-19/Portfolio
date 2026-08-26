@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import Social from "./Social.vue";
-import Link from "./Link.vue";
-import Clickable from "./Clickable.vue";
 
 import NotchSection from "./NotchSection.vue";
-import { t } from "../i18n/utils/translate";
-import { locale } from "../i18n/store";
 import ButtonRound from "./ButtonRound.vue";
 import { lenis } from "../composables/useScroll";
 import ArrowRightLong from "./icons/ArrowRightLong.vue";
@@ -92,30 +88,6 @@ const { withSocial = true } = defineProps<Props>();
       gap: var(--space-md);
       flex-direction: row;
     }
-
-    &-links {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      gap: var(--space-md);
-
-      &-legal {
-        display: flex;
-        flex-direction: row;
-        gap: var(--space-md);
-      }
-
-      @include mixins.mq("md") {
-        gap: var(--space-lg);
-        flex-direction: row;
-        position: relative;
-        margin-left: auto;
-      }
-    }
-  }
-
-  &-link {
-    font-weight: 700;
   }
 
   &-notch {

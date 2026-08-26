@@ -70,6 +70,7 @@ import AppearingText from "../../../components/AppearingText.vue";
       display: flex;
       flex-direction: column;
       gap: var(--space-sm);
+      margin-top: 2vh;
 
       @include mixins.mq("md") {
         gap: var(--space-md);
