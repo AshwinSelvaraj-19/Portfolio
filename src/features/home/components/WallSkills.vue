@@ -132,9 +132,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Wall-mount shadow — subtle, realistic, cast behind the frame */
-  filter: drop-shadow(0 5px 12px rgba(60, 40, 20, 0.18))
-          drop-shadow(0 2px 4px rgba(60, 40, 20, 0.10));
+  /* No filter: drop-shadow — that makes it float off the wall */
 }
 
 /* ── Wooden outer frame ─────────────────────────────────────────────── */
@@ -145,10 +143,10 @@ onBeforeUnmount(() => {
     /* Outer bevel highlight (top-left light) */
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      transparent 40%
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 35%
     ),
-    /* Wood gradient */
+    /* Wood gradient — warmer, matches room palette */
     linear-gradient(
       155deg,
       #b8956a 0%,
@@ -156,23 +154,35 @@ onBeforeUnmount(() => {
       #c4a578 55%,
       #8e6d48 100%
     );
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 7px;
-  /* Subtle 3D wall-mount rotation */
-  transform: perspective(900px) rotateY(-0.6deg) rotateX(0.3deg);
-  /* Multi-layer frame shadows */
+  /* Very subtle perspective — nearly flush with the wall plane */
+  transform: perspective(1200px) rotateY(-0.3deg) rotateX(0.15deg);
+  /*
+   * Wall-mounted contact shadow system:
+   * 1. Tight inset bevels — physical frame thickness
+   * 2. Small contact shadow — frame pressing against wall
+   * 3. Tiny ambient — very faint room bounce light
+   *
+   * No large offset shadows — those make it float.
+   */
   box-shadow:
-    /* Outer bevel — dark edge */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-    /* Outer bevel — light edge */
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    /* Inner bevel sides */
-    inset 1px 0 0 rgba(255, 255, 255, 0.08),
-    inset -1px 0 0 rgba(0, 0, 0, 0.08),
-    /* Contact shadow — closer/tighter */
-    0 2px 6px rgba(50, 35, 15, 0.12),
-    /* Contact shadow — ambient */
-    0 8px 24px rgba(50, 35, 15, 0.08);
+    /* ── Frame physical depth (inset bevels) ── */
+    /* Top bevel — light catch */
+    inset 0 2px 0 rgba(255, 255, 255, 0.20),
+    /* Bottom bevel — shadow */
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12),
+    /* Left bevel — light */
+    inset 2px 0 0 rgba(255, 255, 255, 0.10),
+    /* Right bevel — shadow */
+    inset -2px 0 0 rgba(0, 0, 0, 0.08),
+    /* ── Contact shadow — tight, directional ── */
+    /* Primary contact: very close, low blur, simulates frame resting on wall */
+    1px 2px 3px rgba(50, 35, 15, 0.15),
+    /* Secondary contact: slightly more spread, softens the edge */
+    2px 4px 8px rgba(50, 35, 15, 0.08),
+    /* Ambient wall bounce — very faint, barely visible */
+    3px 6px 14px rgba(50, 35, 15, 0.04);
 }
 
 /* ── Inner cream/linen board ────────────────────────────────────────── */
@@ -181,7 +191,11 @@ onBeforeUnmount(() => {
   height: 100%;
   background: linear-gradient(175deg, #faf6ef 0%, #f2ebe0 100%);
   border-radius: 3px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Recessed inner board — inset shadow simulates the board sitting
+     inside the wooden frame groove, not floating above it */
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
