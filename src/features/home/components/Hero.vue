@@ -1,21 +1,50 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import Button from "../../../components/Button.vue";
 import Banner from "../../../components/Banner.vue";
 import { preloaderVisible } from "../../../composables/usePreloader";
 import { t } from "../../../i18n/utils/translate";
 import AppearingText from "../../../components/AppearingText.vue";
 import WallSkills from "./WallSkills.vue";
+
+const heroRef = ref(null);
+const titleRef = ref(null);
+const wallAnchorRef = ref(null);
+
+/** Measure the name h1's right edge and position the wall-anchor just right of it */
+const updateWallPosition = () => {
+  const title = titleRef.value;
+  const anchor = wallAnchorRef.value;
+  if (!title || !anchor) return;
+
+  const titleRect = title.getBoundingClientRect();
+  // Right edge of the name in viewport pixels, plus a gap
+  const gap = 24;
+  anchor.style.left = `${titleRect.right + gap}px`;
+};
+
+let resizeObserver = null;
+
+onMounted(() => {
+  updateWallPosition();
+  resizeObserver = new ResizeObserver(updateWallPosition);
+  if (heroRef.value) resizeObserver.observe(heroRef.value);
+});
+
+onBeforeUnmount(() => {
+  resizeObserver?.disconnect();
+});
 </script>
 
 <template>
-  <div class="hero">
-    <div class="wall-anchor">
+  <div ref="heroRef" class="hero">
+    <div ref="wallAnchorRef" class="wall-anchor">
       <WallSkills />
     </div>
     <div class="hero-content grid">
       <div class="hero-content-inner" id="hero-content-inner">
         <div class="hero-content-copys">
-          <h1 class="hero-title">Ashwin<br />Selvaraj</h1>
+          <h1 ref="titleRef" class="hero-title">Ashwin<br />Selvaraj</h1>
           <Banner class="hero-banner" :copy="t('job-title')" v-if="!preloaderVisible" animated />
         </div>
       </div>
@@ -121,33 +150,30 @@ import WallSkills from "./WallSkills.vue";
   }
 }
 
-// Wall anchor: positioned in the empty cream wall between the name and notice board,
-// above the desk/monitors. Right of name, left of notice board.
+// Wall anchor: JS measures the h1 right edge and sets left dynamically.
+// These base styles handle visibility and vertical/size constraints only.
 .wall-anchor {
   display: none;
 
   @include mixins.landscape {
     display: block;
     position: absolute;
-    // Name ends ~34%; notice board starts ~50%; position frame in the gap
-    left: 34%;
-    top: 20%;
-    width: clamp(170px, 14vw, 280px);
-    height: clamp(120px, 10vw, 185px);
+    // left is set by JS — measure the name h1's right edge + gap
+    top: 12%;
+    width: clamp(180px, 15vw, 300px);
+    height: clamp(200px, 22vw, 360px);
   }
 
   @media (orientation: landscape) and (min-width: 1280px) {
-    left: 34%;
-    top: 18%;
-    width: clamp(200px, 14vw, 320px);
-    height: clamp(140px, 10vw, 200px);
+    top: 11%;
+    width: clamp(200px, 15vw, 300px);
+    height: clamp(240px, 22vw, 380px);
   }
 
   @media (orientation: landscape) and (min-width: 1600px) {
-    left: 34%;
-    top: 16%;
-    width: clamp(240px, 14vw, 340px);
-    height: clamp(160px, 10vw, 210px);
+    top: 10%;
+    width: clamp(240px, 14vw, 320px);
+    height: clamp(280px, 22vw, 400px);
   }
 }
 </style>
