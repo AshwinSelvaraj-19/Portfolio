@@ -3,7 +3,7 @@
 > Interactive personal portfolio showcasing projects, technical skills, experiments, and development work.
 
 🌐 **Live Portfolio:**  
-https://ashwinselvaraj-19.github.io/PORTFOLIO/
+https://ashwinselvaraj19.netlify.app/
 
 💻 **GitHub:**  
 https://github.com/AshwinSelvaraj-19
