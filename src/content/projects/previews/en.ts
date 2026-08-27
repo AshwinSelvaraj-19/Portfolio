@@ -4,25 +4,25 @@ export default [
   {
     title: "Emergency Route Optimizer",
     slug: "quibbo",
-    thumbnail: "",
+    thumbnail: "/project-images/emergency-route-optimizer.PNG",
     description: "Intelligent route optimization for emergency response",
   },
   {
-    title: "Sentinel Threat Detection System",
+    title: "Phoenix Threat Detection System",
     slug: "sharkie",
-    thumbnail: "",
-    description: "Security-focused threat detection and monitoring",
+    thumbnail: "/project-images/sentinel-security.PNG",
+    description: "Security analysis platform for identifying suspicious processes",
   },
   {
     title: "PhoenixMic — Real-Time Audio DSP Engine",
     slug: "cubewar",
-    thumbnail: "",
+    thumbnail: "/project-images/phoenixmic.PNG",
     description: "Real-time microphone processing with configurable DSP pipeline",
   },
   {
-    title: "Aegis — Discord Security & Anti-Nuke",
+    title: "𝐇𝐄𝐀𝐕𝐄𝐍 𝐆𝐮𝐚𝐫𝐝𝐢𝐚𝐧",
     slug: "particles",
-    thumbnail: "",
-    description: "Discord security and server-protection bot",
+    thumbnail: "/project-images/security-bot.png",
+    description: "Discord security and anti-nuke moderation bot",
   },
 ] as const satisfies ProjectPreview[];

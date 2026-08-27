@@ -93,6 +93,26 @@ watch(
     color: var(--color-text-400);
   }
 
+  // Dark cybersecurity theme for Phoenix/Sentinel project
+  &-sharkie {
+    --color-background-300: #0a1628;
+    --color-background-400: #0f1f38;
+    --color-text-400: #e1e8f0;
+    --color-text-300: #8899aa;
+    --color-grayscale-400: #1a2d47;
+    --color-grayscale-500: #152238;
+    --color-beige-400: #0f1f38;
+    --color-beige-500: #0a1628;
+    --color-beige-600: #0f1f38;
+    --color-beige-700: #0a1628;
+    --color-black-400: #0a1628;
+    --color-accent-400: #3b82f6;
+    --color-accent-text-400: #ffffff;
+    --color-hover: #1e40af;
+    --color-hover-text: #ffffff;
+    background-color: #0a1628;
+  }
+
   ::selection {
     background: var(--color-accent-400);
     color: var(--color-accent-text-400);

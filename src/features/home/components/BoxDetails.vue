@@ -139,13 +139,13 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     position: absolute;
     padding-bottom: 3px;
     padding-right: var(--line-length);
-    width: 240px;
+    width: 280px;
     max-width: calc(var(--svw) * 30);
     transform: translate(-100%, -50%);
   }
 
   @include mixins.landscape-large {
-    width: 240px;
+    width: 280px;
   }
 
   &::after,
@@ -190,11 +190,13 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     flex-direction: row;
     justify-content: space-between;
     padding: var(--space-sm) var(--space-md);
+    overflow-wrap: break-word;
+    word-break: normal;
 
     @include mixins.landscape {
       flex-direction: column;
       justify-content: flex-start;
-      padding: var(--space-xs) var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
     }
 
     @include mixins.mq("md") {
@@ -207,8 +209,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     align-items: center;
     gap: var(--space-xs);
     flex-direction: row;
-    white-space: nowrap;
     height: var(--icon-size-sm);
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   &-icon {
@@ -224,10 +228,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   &-title {
     font-size: var(--font-size-title-xxs);
     font-weight: 700;
-    background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
-    padding: var(--space-xxs) var(--space-xs);
-    border-radius: var(--radius-sm);
-    display: inline-block;
+    padding: var(--space-xxs) 0;
+    display: block;
+    min-width: 0;
+    width: 100%;
 
     @include mixins.mq("md") {
       font-size: var(--font-size-title-sm);
@@ -238,13 +242,15 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     display: flex;
     font-size: var(--font-size-sm);
     flex-direction: column;
+    width: 100%;
+    min-width: 0;
 
     @include mixins.mq("md") {
       font-size: var(--font-size-md);
     }
 
     &-copy {
-      flex: 0.5;
+      min-width: 0;
     }
   }
 }

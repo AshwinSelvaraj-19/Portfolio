@@ -13,6 +13,7 @@ export interface ProjectContent {
   videoBorder?: boolean;
   live?: string;
   source?: string;
+  heroImage?: string;
   components?: ProjectComponent[];
 }
 

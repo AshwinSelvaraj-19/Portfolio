@@ -4,10 +4,14 @@ import Banner from "../../../components/Banner.vue";
 import { preloaderVisible } from "../../../composables/usePreloader";
 import { t } from "../../../i18n/utils/translate";
 import AppearingText from "../../../components/AppearingText.vue";
+import WallSkills from "./WallSkills.vue";
 </script>
 
 <template>
   <div class="hero">
+    <div class="wall-anchor">
+      <WallSkills />
+    </div>
     <div class="hero-content grid">
       <div class="hero-content-inner" id="hero-content-inner">
         <div class="hero-content-copys">
@@ -70,7 +74,7 @@ import AppearingText from "../../../components/AppearingText.vue";
       display: flex;
       flex-direction: column;
       gap: var(--space-sm);
-      margin-top: 2vh;
+      margin-top: 4vh;
 
       @include mixins.mq("md") {
         gap: var(--space-md);
@@ -103,21 +107,47 @@ import AppearingText from "../../../components/AppearingText.vue";
   }
 
   &-banner {
-    position: absolute;
-    bottom: 0;
-    right: -16px;
-    z-index: 10;
-    transform: rotate(-5deg) translate(0, 65%);
+    transform: rotate(-5deg);
+    align-self: flex-start;
+    margin-right: -16px;
 
     @include mixins.mq("sm") {
-      right: -24px;
-      transform: rotate(-5deg) translate(0, 70%);
+      margin-right: -24px;
     }
 
     @include mixins.mq("lg") {
-      right: -32px;
-      transform: rotate(-5deg) translate(0, 80%);
+      margin-right: -32px;
     }
+  }
+}
+
+// Wall anchor: positioned in the empty cream wall between the name and notice board,
+// above the desk/monitors. Right of name, left of notice board.
+.wall-anchor {
+  display: none;
+
+  @include mixins.landscape {
+    display: block;
+    position: absolute;
+    // Name ends ~34%; notice board starts ~50%; position frame in the gap
+    left: 34%;
+    top: 20%;
+    width: clamp(170px, 14vw, 280px);
+    height: clamp(120px, 10vw, 185px);
+  }
+
+  @media (orientation: landscape) and (min-width: 1280px) {
+    left: 34%;
+    top: 18%;
+    width: clamp(200px, 14vw, 320px);
+    height: clamp(140px, 10vw, 200px);
+  }
+
+  @media (orientation: landscape) and (min-width: 1600px) {
+    left: 34%;
+    top: 16%;
+    width: clamp(240px, 14vw, 340px);
+    height: clamp(160px, 10vw, 210px);
   }
 }
 </style>

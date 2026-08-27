@@ -91,6 +91,36 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       background-color: #95630e;
       color: white;
     }
+
+    &-fastapi {
+      background-color: #009688;
+      color: white;
+    }
+
+    &-pefile {
+      color: var(--color-text-400);
+      border-color: var(--color-grayscale-400);
+    }
+
+    &-hashlib {
+      color: var(--color-text-400);
+      border-color: var(--color-grayscale-400);
+    }
+
+    &-requests {
+      background-color: #c4302b;
+      color: white;
+    }
+
+    &-psutil {
+      color: var(--color-text-400);
+      border-color: var(--color-grayscale-400);
+    }
+
+    &-virustotal {
+      background-color: #394aab;
+      color: white;
+    }
   }
 }
 </style>

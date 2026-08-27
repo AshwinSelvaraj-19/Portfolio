@@ -138,6 +138,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .appearing-text {
   position: relative;
+  min-width: 0;
 }
 
 .appearing-text-value {

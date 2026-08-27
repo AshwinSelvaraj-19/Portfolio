@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect, onBeforeUnmount } from "vue";
+import { ref, watchEffect, onBeforeUnmount } from "vue";
 import gsap from "gsap";
-import { locale } from "../../../i18n/store";
 import { t } from "../../../i18n/utils/translate";
 import AppearingText from "../../../components/AppearingText.vue";
 import { BREAKPOINTS } from "../../../utils/sizes";
 import { Vector3 } from "three";
 import ProjectedElement from "../../../components/ProjectedElement.vue";
+import { PORTFOLIO_SKILLS } from "../../../content/skills";
 
 const point = new Vector3(0.75, 2.75, 6.75);
 
@@ -106,31 +106,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   timelines.value = updatedTimelines;
 };
 
-const SERVICES_EN = [
-  { name: "Python" },
-  { name: "HTML" },
-  { name: "CSS" },
-  { name: "Git" },
-  { name: "GitHub" },
-  { name: "Supabase" },
-  { name: "Railway" },
-  { name: "Netlify" },
-] as const satisfies { name: string }[];
-
-const SERVICES_DE = [
-  { name: "Python" },
-  { name: "HTML" },
-  { name: "CSS" },
-  { name: "Git" },
-  { name: "GitHub" },
-  { name: "Supabase" },
-  { name: "Railway" },
-  { name: "Netlify" },
-] as const satisfies { name: string }[];
-
-const services = computed(() => {
-  return locale.value === "en" ? SERVICES_EN : SERVICES_DE;
-});
+const services = PORTFOLIO_SKILLS;
 </script>
 
 <template>

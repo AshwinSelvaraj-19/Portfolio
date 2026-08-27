@@ -23,7 +23,13 @@ export type TagVariant =
   | "ai"
   | "opencv"
   | "discord"
-  | "security";
+  | "security"
+  | "fastapi"
+  | "pefile"
+  | "hashlib"
+  | "requests"
+  | "psutil"
+  | "virustotal";
 
 export const tagLabels = {
   three: "Three.js",
@@ -51,4 +57,10 @@ export const tagLabels = {
   opencv: "OpenCV",
   discord: "Discord API",
   security: "Security",
+  fastapi: "FastAPI",
+  pefile: "PEfile",
+  hashlib: "SHA-256",
+  requests: "VirusTotal",
+  psutil: "psutil",
+  virustotal: "Reputation",
 } as const satisfies Record<TagVariant, string>;

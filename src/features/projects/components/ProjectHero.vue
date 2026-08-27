@@ -4,7 +4,8 @@ import Button from "../../../components/Button.vue";
 import { t } from "../../../i18n/utils/translate";
 import Link from "../../../components/Link.vue";
 import { projectId } from "../../../composables/useRouteObserver";
-import { ref, watch } from "vue";
+import { ref, watch, watchEffect } from "vue";
+import gsap from "gsap";
 
 import type { ProjectContent } from "../../../content/types";
 
@@ -13,16 +14,41 @@ const { content } = defineProps<{
 }>();
 
 const animationKey = ref(0);
+const heroImageRef = ref<HTMLDivElement | null>(null);
+const heroImgRef = ref<HTMLImageElement | null>(null);
 
 // Force animation restart when projectId changes
 watch(projectId, () => {
   animationKey.value++;
+});
+
+// Scroll animation for hero image
+watchEffect((onInvalidate) => {
+  if (!heroImageRef.value || !heroImgRef.value) return;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: heroImageRef.value,
+      start: "top bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reset",
+    },
+  });
+  tl.fromTo(heroImageRef.value, { scale: 0.8 }, { scale: 1, duration: 0.5, ease: "power1.out" }, 0);
+  tl.fromTo(heroImgRef.value, { scale: 1.15 }, { scale: 1, duration: 0.5, ease: "power1.out" }, 0);
+
+  onInvalidate(() => {
+    tl.kill();
+    gsap.set(heroImageRef.value, { scale: 1 });
+    gsap.set(heroImgRef.value, { scale: 1 });
+  });
 });
 </script>
 
 <template>
   <div class="project-hero grid">
     <div class="project-hero-top">
+      <p class="project-hero-label">PROJECT</p>
       <div class="project-hero-title-wrapper">
         <h1 class="project-hero-title" :key="animationKey">
           {{ content.title }}
@@ -51,6 +77,18 @@ watch(projectId, () => {
         }}</Button>
       </Link>
     </div>
+    <div v-if="content.heroImage" class="project-hero-image-wrapper" ref="heroImageRef">
+      <div class="project-hero-image-container">
+        <img
+          :src="content.heroImage"
+          :alt="content.title"
+          class="project-hero-image"
+          ref="heroImgRef"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -62,6 +100,15 @@ watch(projectId, () => {
 
   @include mixins.mq("md") {
     padding-bottom: 64px;
+  }
+
+  &-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-300);
+    margin-bottom: var(--space-xxs);
   }
 
   &-button {
@@ -81,7 +128,6 @@ watch(projectId, () => {
     gap: var(--space-sm);
     margin-top: var(--space-md);
     width: 100%;
-    grid-column: 1 / 13;
 
     @include mixins.mq("md") {
       gap: var(--space-md);
@@ -96,17 +142,35 @@ watch(projectId, () => {
     }
   }
 
-  &-video {
-    grid-column: 1 / span 12;
-    align-self: center;
+  &-image-wrapper {
+    grid-column: 1 / 13;
+    margin-top: var(--space-xl);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
 
     @include mixins.mq("md") {
-      grid-column: 1 / 8;
+      grid-column: 2 / 12;
+      margin-top: var(--space-xxl);
     }
 
     @include mixins.mq("lg") {
-      grid-column: 2 / 8;
+      grid-column: 2 / 12;
     }
+  }
+
+  &-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-grayscale-400);
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   &-tags {
